@@ -1,0 +1,88 @@
+/* Facilities Form Styles */
+.facilities-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    background-color: #f3f4f6; /* Tailwind's bg-gray-100 */
+    min-height: 100vh;
+  }
+  
+  .facilities-form {
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .facilities-form h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .facilities-form p {
+    font-weight: 600;
+  }
+  
+  .facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .facility-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .facility-item input {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .facility-item span {
+    font-size: 16px;
+    text-transform: capitalize;
+  }
+  
+  /* Buttons */
+  .facilities-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  
+  .facilities-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .facilities-buttons .back-btn {
+    background: #6b7280; /* Tailwind's gray-500 */
+    color: white;
+  }
+  
+  .facilities-buttons .back-btn:hover {
+    background: #4b5563; /* Tailwind's gray-600 */
+  }
+  
+  .facilities-buttons .submit-btn {
+    background: #3b82f6; /* Tailwind's blue-500 */
+    color: white;
+  }
+  
+  .facilities-buttons .submit-btn:hover {
+    background: #2563eb; /* Tailwind's blue-600 */
+  }
+  

@@ -1,0 +1,87 @@
+/* Container Styling */
+.add-course-container {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+  }
+  
+  /* Heading */
+  h2 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Message Styling */
+  .message {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .success {
+    color: green;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  /* Form Styling */
+  .add-course-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-course-form input,
+  .add-course-form select {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .add-course-form select {
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  /* Checkbox Styling */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .checkbox-label input {
+    margin-right: 10px;
+  }
+  
+  /* Button Styling */
+  .submit-button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submit-button:hover {
+    background: #0056b3;
+  }
+  
+  .submit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
