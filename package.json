@@ -2,7 +2,7 @@
   "name": "college-admin-panel",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yeshwantreddyanugu.github.io/collegeAdmin",
+  "homepage": "https://yeshwantreddyanugu.github.io/college-admin-panel",
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
