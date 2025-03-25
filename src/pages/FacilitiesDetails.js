@@ -26,7 +26,7 @@ const FacilitiesDetails = () => {
     if (!collegeCode) return;
 
     try {
-      const response = await axios.get(`http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/facilities/${collegeCode}`);
+      const response = await axios.get(`https://api.lytortech.com/admin/get/facilities/${collegeCode}`);
       if (response.data) {
         setFacilitiesData(response.data);
         setEditedData(response.data);
@@ -57,7 +57,7 @@ const FacilitiesDetails = () => {
 
     try {
       const response = await axios.put(
-        `http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/update/facilities`,
+        `https://api.lytortech.com/admin/update/facilities`,
         {
           collegeCode,  // Ensure collegeCode is sent in the request body
           ...editedData

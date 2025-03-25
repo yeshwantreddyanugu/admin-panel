@@ -15,7 +15,7 @@ const CollegeDetails = () => {
     if (!college) {
       const fetchCollegeDetails = async () => {
         try {
-          const response = await axios.get(`http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/college/${collegeCode}`);
+          const response = await axios.get(`https://api.lytortech.com/admin/get/college/${collegeCode}`);
           setCollege(response.data);
           setUpdatedData(response.data);
         } catch (error) {
@@ -41,7 +41,7 @@ const CollegeDetails = () => {
   const handleSave = async () => {
     try {
       const response = await axios.put(
-        `http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/update/college`, 
+        `https://api.lytortech.com/admin/update/college`, 
         { ...updatedData, collegeCode } // Ensure collegeCode is included in the request body
       );
 

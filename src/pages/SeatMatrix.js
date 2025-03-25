@@ -26,7 +26,7 @@ const SeatMatrix = () => {
     if (!collegeCode) return;
 
     try {
-      const response = await axios.get(`http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/seat-matrix/${collegeCode}`);
+      const response = await axios.get(`https://api.lytortech.com/admin/get/seat-matrix/${collegeCode}`);
       if (response.data) {
         setSeatMatrixData(response.data);
         setEditedData(response.data);
@@ -54,7 +54,7 @@ const SeatMatrix = () => {
     try {
       const payload = { ...editedData, collegeCode }; // Ensure collegeCode is in request body
       const response = await axios.put(
-        "http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/update/seat-matrix", 
+        "https://api.lytortech.com/admin/update/seat-matrix", 
         payload
       );
   

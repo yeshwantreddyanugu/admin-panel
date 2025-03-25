@@ -27,7 +27,7 @@ const ContactDetails = () => {
     }
   
     try {
-      const response = await axios.get(`http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/contact/${college.collegeCode}`);
+      const response = await axios.get(`https://api.lytortech.com/admin/get/contact/${college.collegeCode}`);
   
       if (response.status === 200 && response.data) {
         setContacts(prev => ({
@@ -52,7 +52,7 @@ const ContactDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/update/contact", contacts);
+      await axios.put("https://api.lytortech.com/admin/update/contact", contacts);
       alert("Contact details updated successfully!");
     } catch (error) {
       console.error("Error updating contact details:", error);

@@ -29,7 +29,7 @@ const AddCourse = ({ collegeCode, existingCourseData, onCourseAdded, onBack }) =
     e.preventDefault();
 
     try {
-      const response = await fetch("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/courses", {
+      const response = await fetch("https://api.lytortech.com/admin/courses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(course),

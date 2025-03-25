@@ -35,7 +35,7 @@ const ContactForm = ({ collegeCode, onContactAdded, onBack }) => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/contacts", {
+      const response = await fetch("https://api.lytortech.com/admin/contacts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -29,7 +29,7 @@ const PhotoUploadForm = ({ collegeCode, onUploadComplete }) => {
 
     setLoading(true);
     try {
-      const response = await fetch("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/save/images", {
+      const response = await fetch("https://api.lytortech.com/admin/save/images", {
         method: "POST",
         body: formData,
       });

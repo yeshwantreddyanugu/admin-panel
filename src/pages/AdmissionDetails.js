@@ -34,7 +34,7 @@ const AdmissionDetails = () => {
       return;
     }
 
-    const apiUrl = `http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/admission/${collegeCode}`;
+    const apiUrl = `https://api.lytortech.com/admin/get/admission/${collegeCode}`;
     console.log("🌍 Fetching Admission Details from:", apiUrl);
     
     try {
@@ -68,7 +68,7 @@ const AdmissionDetails = () => {
       return;
     }
   
-    const updateUrl = `http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/update/admission`; // No collegeCode in URL
+    const updateUrl = `https://api.lytortech.com/admin/update/admission`; // No collegeCode in URL
     console.log("💾 Saving Changes to:", updateUrl);
     
     try {

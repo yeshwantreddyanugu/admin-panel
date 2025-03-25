@@ -17,7 +17,7 @@ const PlacementForm = ({ collegeCode, onPlacementAdded, onBack }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/placements", {
+      const response = await fetch("https://api.lytortech.com/admin/placements", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

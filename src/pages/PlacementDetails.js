@@ -23,7 +23,7 @@ const PlacementDetails = () => {
 
     try {
       console.log("Fetching placements for collegeCode:", collegeCode);
-      const response = await axios.get(`http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/placements/${collegeCode}`);
+      const response = await axios.get(`https://api.lytortech.com/admin/get/placements/${collegeCode}`);
 
       console.log("Raw Response Data:", response.data);
       if (!response.data || Object.keys(response.data).length === 0) {
@@ -56,7 +56,7 @@ const PlacementDetails = () => {
   const handleSave = async () => {
     try {
         const response = await axios.put(
-            "http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/update/placement", // Fix: No collegeCode in URL
+            "https://api.lytortech.com/admin/update/placement", // Fix: No collegeCode in URL
             formData // Send the full object in the request body
         );
         

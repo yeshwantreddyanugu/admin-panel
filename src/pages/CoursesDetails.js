@@ -15,7 +15,7 @@ const CourseDetails = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get(`http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/courses/${collegeCode}`);
+      const response = await axios.get(`https://api.lytortech.com/admin/get/courses/${collegeCode}`);
       console.log("API Response Data:", response.data); 
       setCourseData(response.data);
       setEditedData(response.data);
@@ -43,7 +43,7 @@ const CourseDetails = () => {
         collegeCode,   // Ensure collegeCode is included in the request body
       };
   
-      const response = await axios.put("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/update/course", payload);
+      const response = await axios.put("https://api.lytortech.com/admin/update/course", payload);
       
       if (response.status === 200) {
         alert("Course updated successfully!");

@@ -45,7 +45,7 @@ const Home = () => {
     setMessage("");
 
     try {
-      const response = await fetch("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/colleges", {
+      const response = await fetch("https://api.lytortech.com/admin/colleges", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(college),

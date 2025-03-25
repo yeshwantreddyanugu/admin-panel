@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Colleges = () => {
   const [colleges, setColleges] = useState([]);
-  const backendURL = "http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/get/colleges";
+  const backendURL = "https://api.lytortech.com/admin/get/colleges";
 
   useEffect(() => {
     fetchColleges();
@@ -33,7 +33,7 @@ const Colleges = () => {
     try {
       console.log(`Sending DELETE request to: http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/delete/college/${collegeCode}`);
 
-      const response = await axios.delete(`http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/delete/college/${collegeCode}`);
+      const response = await axios.delete(`https://api.lytortech.com/admin/delete/college/${collegeCode}`);
 
       if (response.status === 200 || response.status === 204) {
         setColleges(colleges.filter((college) => college.collegeCode !== collegeCode));

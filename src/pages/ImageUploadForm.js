@@ -25,7 +25,7 @@ const ImageUploadForm = ({ collegeCode, onBack, onImageUploadComplete }) => {
 
     try {
       const response = await fetch(
-        "http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/save/image",
+        "https://api.lytortech.com/admin/save/image",
         {
           method: "POST",
           body: formDataToSend,

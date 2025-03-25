@@ -22,7 +22,7 @@ const SeatMatrixForm = ({ collegeCode, onSeatMatrixAdded, onBack }) => {
     setMessage(""); // Clear message before submitting
 
     try {
-      const response = await fetch("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/seat-matrix", {
+      const response = await fetch("https://api.lytortech.com/admin/seat-matrix", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

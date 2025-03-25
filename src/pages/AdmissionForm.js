@@ -20,7 +20,7 @@ export default function AdmissionForm({ collegeCode, onAdmissionAdded, onBack })
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://collegeproject-env.eba-ybgbtz3k.ap-south-1.elasticbeanstalk.com/admin/admissions", {
+            const response = await fetch("https://api.lytortech.com/admin/admissions", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)
