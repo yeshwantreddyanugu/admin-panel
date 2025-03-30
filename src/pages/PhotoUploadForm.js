@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import "../style/PhotoUploadForm.css"; // Import the CSS file
+import { useNavigate } from "react-router-dom";
+import "../style/PhotoUploadForm.css";
 
 const PhotoUploadForm = ({ collegeCode, onUploadComplete }) => {
+  const navigate = useNavigate();
   const [url, setUrl] = useState("");
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -36,12 +38,8 @@ const PhotoUploadForm = ({ collegeCode, onUploadComplete }) => {
 
       if (response.ok) {
         alert("Photos uploaded successfully!");
-        setUrl("");
-        setImages([]);
-        if (onUploadComplete) {
-          console.log("✅ Upload complete! Navigating to Home...");
-          onUploadComplete(); // Navigate to Home
-        }
+        // Navigate to review page with collegeCode
+        navigate(`/review/${collegeCode}`);
       } else {
         alert("Failed to upload photos.");
       }
@@ -60,13 +58,13 @@ const PhotoUploadForm = ({ collegeCode, onUploadComplete }) => {
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <label>College Code:</label>
           <input type="text" value={collegeCode} disabled />
-
+  
           <label>Website URL:</label>
           <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
-
+  
           <label>Upload Multiple Images:</label>
           <input type="file" accept="image/*" multiple onChange={handleFileChange} />
-
+  
           {images.length > 0 && (
             <div className="image-preview-container">
               <p>Selected Images:</p>
@@ -82,7 +80,7 @@ const PhotoUploadForm = ({ collegeCode, onUploadComplete }) => {
               </div>
             </div>
           )}
-
+  
           <button type="submit" disabled={loading} className="upload-btn">
             {loading ? "Uploading..." : "Upload"}
           </button>
@@ -90,6 +88,11 @@ const PhotoUploadForm = ({ collegeCode, onUploadComplete }) => {
       </div>
     </div>
   );
+  
+
+  
 };
 
 export default PhotoUploadForm;
+
+
