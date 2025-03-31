@@ -60,7 +60,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/admin-panel">
       {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} handleLogout={handleLogout} />}
       <Routes>
         {/* Public routes */}
