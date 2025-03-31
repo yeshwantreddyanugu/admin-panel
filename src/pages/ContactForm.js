@@ -66,16 +66,27 @@ const ContactForm = ({ collegeCode, onContactAdded, onBack }) => {
         <form onSubmit={handleSubmit}>
           <label className="block mb-2">College Code:</label>
           <input type="text" name="collegeCode" value={formData.collegeCode} className="w-full p-2 border rounded mb-3" disabled />
-
+  
           <label className="block mb-2">Email:</label>
           <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full p-2 border rounded mb-3" required />
-
+  
           <label className="block mb-2">Phone:</label>
           <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-2 border rounded mb-3" required />
-
+  
           <label className="block mb-2">Google Maps Link:</label>
           <input type="text" name="googleMapsLink" value={formData.googleMapsLink} onChange={handleChange} className="w-full p-2 border rounded mb-3" required />
-
+  
+          {/* Added Address Field */}
+          <label className="block mb-2">Address:</label>
+          <textarea
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            className="w-full p-2 border rounded mb-3"
+            rows="3"
+            required
+          />
+  
           <div style={{ display: "flex", gap: "10px", marginTop: "16px" }}>
             <button 
               type="button" 

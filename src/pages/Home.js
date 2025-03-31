@@ -241,15 +241,30 @@ const Home = () => {
             value={college.tier || ''}
             onChange={handleChange}
             required
-            className="form-select"
+            className="form-select w-full px-4 py-4 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors mb-5"
+            style={{ marginBottom: '20px' }} 
           >
             <option value="" disabled>Select Tier</option>
             <option value="Tier 1">Tier 1</option>
             <option value="Tier 2">Tier 2</option>
             <option value="Tier 3">Tier 3</option>
           </select>
+
+
+          <select
+             name="recommended"
+             value={college.recommended || ''}
+             onChange={handleChange}
+             required
+             className="form-select w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+          >
+            <option value="" disabled>Select Recommendation</option>
+            <option value="Recommended">Recommended</option>
+            <option value="Top College">Top College</option>
+           </select>
+
         
-          {/* New Registration Field */}
+          
           <input 
             type="text" 
             name="registration" 
@@ -266,7 +281,7 @@ const Home = () => {
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
-        </form>
+          </form>
         )}
 
         {/* Course Form */}
