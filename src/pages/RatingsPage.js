@@ -15,7 +15,7 @@ const RatingsPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://api.lytortech.com/admin/get/rating",
+        "https://api.lytortech.com/admin/get/ratings",
         {
           headers: {
             "Content-Type": "application/json",
