@@ -24,7 +24,6 @@ const RatingsPage = () => {
         }
       );
 
-      // Transform data if needed
       const formattedRatings = response.data.map(rating => ({
         ...rating,
         teaching: Math.min(5, Math.max(1, rating.teaching || 0)),
@@ -40,6 +39,27 @@ const RatingsPage = () => {
       setError(error.response?.data?.message || "Failed to load ratings");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDelete = async (ratingId) => {
+    if (!window.confirm("Are you sure you want to delete this rating?")) {
+      return;
+    }
+
+    try {
+      await axios.delete(
+        `https://api.lytortech.com/admin/rating/${ratingId}`,
+        {
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      );
+      fetchRatings(); // Refresh the list after deletion
+    } catch (error) {
+      console.error("Error deleting rating:", error);
+      setError(error.response?.data?.message || "Failed to delete rating");
     }
   };
 
@@ -93,6 +113,7 @@ const RatingsPage = () => {
                 <th style={styles.th}>Campus</th>
                 <th style={styles.th}>Extracurricular</th>
                 <th style={styles.th}>Comment</th>
+                <th style={styles.th}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -112,6 +133,14 @@ const RatingsPage = () => {
                     {rating.extracurricular} {renderStars(rating.extracurricular)}
                   </td>
                   <td style={styles.td}>{rating.comment || "-"}</td>
+                  <td style={styles.td}>
+                    <button 
+                      onClick={() => handleDelete(rating.id)}
+                      style={styles.deleteButton}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -197,6 +226,18 @@ const styles = {
     textAlign: "center",
     padding: "20px",
     color: "#7f8c8d"
+  },
+  deleteButton: {
+    padding: "6px 12px",
+    backgroundColor: "#e74c3c",
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    transition: "background-color 0.2s",
+    "&:hover": {
+      backgroundColor: "#c0392b"
+    }
   }
 };
 

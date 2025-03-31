@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Colleges = () => {
   const [colleges, setColleges] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const backendURL = "https://api.lytortech.com/admin/get/colleges";
 
   useEffect(() => {
@@ -47,9 +48,39 @@ const Colleges = () => {
     }
   };
 
+  const filteredColleges = colleges.filter(college => {
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      college.collegeCode?.toLowerCase().includes(searchLower) ||
+      college.name?.toLowerCase().includes(searchLower)
+    );
+  });
+
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4">Colleges List</h2>
+      
+      {/* Search Bar - New Addition */}
+      <div className="mb-8">  
+  <input
+    type="text"
+    placeholder="Filter by college code or college name..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-400 bg-white"
+    style={{
+      boxShadow: "none",
+      border: "1px solid rgb(159, 159, 163)",
+      padding: "0.5rem 1rem",
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+      borderRadius: "10px",
+      width: " 400px",
+      marginBottom: "10px"
+    }}
+  />
+</div>
+
       <table className="w-full border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-200">
@@ -65,8 +96,8 @@ const Colleges = () => {
           </tr>
         </thead>
         <tbody>
-          {colleges.length > 0 ? (
-            colleges.map((college) => (
+          {filteredColleges.length > 0 ? (
+            filteredColleges.map((college) => (
               <tr key={college.collegeCode} className="text-center">
                 <td className="border p-2 font-bold">{college.collegeCode || "N/A"}</td>
                 <td className="border p-2 font-bold">
@@ -144,7 +175,9 @@ const Colleges = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="9" className="border p-4 text-center">No colleges found</td>
+              <td colSpan="9" className="border p-4 text-center">
+                {searchTerm ? "No matching colleges found" : "No colleges found"}
+              </td>
             </tr>
           )}
         </tbody>
