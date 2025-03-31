@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "../style/Login.css";
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +22,9 @@ const Login = () => {
     try {
       if (email === 'admin@example.com' && password === 'admin123') {
         localStorage.setItem('isAuthenticated', 'true');
-        navigate('/', { replace: true });
-        window.location.reload();
+        setIsAuthenticated(true);
+        // Force full page reload with hash URL for GitHub Pages
+        window.location.href = "/#/";
       } else {
         setError('Invalid email or password');
       }
@@ -64,7 +64,6 @@ const Login = () => {
           />
         </div>
 
-        {/* Added student link above submit button */}
         <div className="student-link">
           <Link to="/student-rating">Are you a student?</Link>
         </div>

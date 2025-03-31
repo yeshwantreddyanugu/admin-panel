@@ -36,3 +36,20 @@ th, td {
     padding: 8px;
     text-align: center;
 }
+
+
+/* Add this new rule at the bottom of your existing styles.css */
+.navbar ul li:last-child {
+    float: right;
+    margin-right: 20px;
+  }
+  
+  /* Optional: Add specific styling for the logout button */
+  .navbar ul li:last-child button {
+    background-color: #d9534f; /* Red color */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }

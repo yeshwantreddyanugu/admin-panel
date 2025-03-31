@@ -132,7 +132,7 @@ const Home = () => {
     <div className="admin-container">
       <header className="admin-header">
         <h1>Admin Panel</h1>
-        <button 
+        {/* <button 
           onClick={handleLogout} 
           className="logout-button"
           style={{
@@ -148,7 +148,7 @@ const Home = () => {
           }}
         >
           Logout
-        </button>
+        </button> */}
       </header>
 
       <main className="admin-main">
